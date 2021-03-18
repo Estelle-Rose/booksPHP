@@ -1,10 +1,24 @@
 <?php 
 require_once('./classes/Livre.class.php');
+require_once('./classes/LivreManager.class.php');
+/* //creation des instance de Livre
 $livre1 = new Livre(1,'L\'algorithmique selon h2prog',300,'algo.png');
 $livre2 = new Livre(2,'Le virus asiatique',200,'virus.png');
 $livre3 = new Livre(3,'La France du 19ème',200,'france.png');
-$livre4 = new Livre(4,'Le Javascript client',500,'JS.png');
+$livre4 = new Livre(4,'Le Javascript client',500,'JS.png'); */
 
+// creation de l'instance LivreManager
+$livreManager = new LivreManager;
+// recupération des livres de la base de données
+$livreManager->getBooksFromDb();
+// recupération des livres du tableau $books de la classe LivreManager
+$books = $livreManager->getBooks();
+
+/* // ajout des livres à la bibliothèque
+$livreManager->ajoutLivre($livre1);
+$livreManager->ajoutLivre($livre2);
+$livreManager->ajoutLivre($livre3);
+$livreManager->ajoutLivre($livre4); */
 
 ob_start() ;?> <!-- Début de la temporisation-->
 
@@ -19,7 +33,7 @@ ob_start() ;?> <!-- Début de la temporisation-->
     </tr>
   </thead>
   <tbody>
-  <?php foreach (Livre::$books as $book) : ?>
+  <?php foreach ($books as $book) : ?>
     <tr class="table-dark text-center">
       <td scope="row" class="align-middle">
         <img src="./public/images/<?= $book->getImage() ?>" alt="<?= $book->getTitre() ?>" style="max-height:100px;" class="img-fluid img-thumbnail">

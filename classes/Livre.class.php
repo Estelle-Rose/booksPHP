@@ -1,4 +1,5 @@
 <?php 
+
 class Livre {
 
     //variables
@@ -7,8 +8,8 @@ class Livre {
     private $nbPages;
     private $image;
 
-    // tableau de livres avec attribut static accessible par self::
-    public static $books;
+    /* // tableau de livres avec attribut static accessible par self::
+    public static $books; */
 
     //constructor
     public function __construct($id,$titre,$nbPages,$image)
@@ -17,9 +18,9 @@ class Livre {
         $this->titre = $titre;
         $this->nbPages = $nbPages;
         $this->image = $image;
-        self::$books[] = $this;
+        
     }
-    
+
     //getters
     public function getId(){return $this->id;}
     public function getTitre(){return $this->titre;}
