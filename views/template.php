@@ -17,12 +17,13 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">Accueil
+            <!-- L'utilisation de la constante URL permet de revenir à la racine de l'url-->
+                <a class="nav-link" href="<?=URL?>accueil">Accueil 
                 
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="livres.php">Livres
+                <a class="nav-link" href="<?=URL?>livres">Livres
                
                 </a>
             </li>
