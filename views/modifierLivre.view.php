@@ -20,7 +20,7 @@ ob_start() ;?> <!-- Début de la temporisation-->
           <input type="file" class="form-control-file" id="image" name="image">
          </div>
      <div class="text-center">
-     <input type="hidden" name="id" value="<?= $book->getId()?>">
+     <input type="hidden" name="id" value="<?= $book->getId()?>"> <!-- champ hidden qui permet d'envoyer l'id du livre-->
         <button type="submit" class="btn btn-primary ">Valider</button>
      </div>
     </form>
