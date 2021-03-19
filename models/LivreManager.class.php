@@ -23,9 +23,12 @@ class LivreManager extends Model {
     }
     public function getBookById($id) {
        foreach($this->books as $book) {
-           if($book->getId() === $id)
-               return $book;           
-       }          
+           if($book->getId() === $id){
+               return $book;          
+           }
+       }   
+       throw new Exception("Le livre n'existe pas");
+              
     }
     public function addBookInDb($titre, $nbPages, $image) {
         $req = 'INSERT INTO livres (titre,nbPages,image) VALUES(:titre,:nbPages,:image);';

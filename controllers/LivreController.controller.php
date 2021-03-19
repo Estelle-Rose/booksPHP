@@ -30,6 +30,10 @@ class LivreController extends Utils{
         $nomImage = $this->livreManager->getBookById($id)->getImage();
         unlink("public/images/".$nomImage);
         $this->livreManager->deleteBookFromDb($id);
+        $_SESSION['alert'] = [
+            'type' => 'success',
+            'msg' => 'Le livre a bien été supprimé'
+        ];
         header('Location:'.URL.'livres');  // redirige vers la page livres après l'ajout du livre
     }
     public function ajoutLivreValidation(){   
@@ -37,6 +41,10 @@ class LivreController extends Utils{
         $dir =  'public/images/';
         $nomImage = $this->ajoutImage($file,$dir);
         $this->livreManager->addBookInDb($_POST['titre'],(int)$_POST['nbPages'],$nomImage); // ajout du livre par livreManager dans la bas e de données
+        $_SESSION['alert'] = [
+            'type' => 'success',
+            'msg' => 'Ajout réalisé'
+        ];
         header('Location:'.URL.'livres'); // redirige vers la page livres après l'ajout du livre
     }
     public function modifLivreValidation(){   
@@ -51,6 +59,10 @@ class LivreController extends Utils{
             $nomImage = $imageActuelle;
         }
         $this->livreManager->updateBookInDb($id,$_POST['titre'],(int)$_POST['nbPages'],$nomImage); // ajout du livre par livreManager dans la bas e de données
+        $_SESSION['alert'] = [
+            'type' => 'success',
+            'msg' => 'Modification réalisée'
+        ];
         header('Location:'.URL.'livres'); // redirige vers la page livres après l'ajout du livre
     }
  

@@ -1,6 +1,14 @@
 <?php 
-ob_start() ;?> <!-- Début de la temporisation-->
-
+ // Début de la temporisation
+ob_start() ;
+if(!empty($_SESSION['alert'])):
+?>
+<div class="alert mt-5 alert-<?= $_SESSION['alert']['type']?>" role="alert" >
+  <?= $_SESSION['alert']['msg'] ?>
+  </div>
+<?php 
+unset($_SESSION['alert']);
+endif; ?>
 <table class="table mt-5 ">
   <thead>
     <tr class="table-primary text-center">
